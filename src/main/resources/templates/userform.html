@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+
+
+
+
+<body>
+<form action="#" th:action=" @{/process}" th:object=" ${user}" method="post">
+    <input type ="hidden" th:field=" *{id}"/>
+
+    User Name :<input type ="text" th:field=" *{userName}"/>
+    <span th:if="${#fields.hasErrors('userName')}"
+          th:errors ="*{userName}"></span><br />
+    Link :<input type ="text" th:field=" *{Link}"/>
+    <span th:if="${#fields.hasErrors('link')}"
+          th:errors ="*{link}"></span><br />
+
+    Description :<textarea row ="3" th:field=" *{Description}"/>
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors ="*{description}"></span><br />
+
+    Date :<textarea row ="3" th:field=" *{date}"/>
+    <span th:if="${#fields.hasErrors('date')}"
+          th:errors ="*{date}"></span><br />
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+
+
+
+
+</body>
+</html>

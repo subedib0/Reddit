@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+
+<a href="/add"> Add a Users</a><br />
+<table>
+
+    <tr>
+
+
+
+        <th>User Name</th>
+        <th>Link</th>
+        <th>Description</th>
+        <th>Date</th>
+
+
+
+    </tr>
+
+    <tr th:each="user : ${user}">
+        <td th:text="${user.userName}"> </td>
+        <td th:text="${user.link}"> </td>
+        <td th:text="${user.description}"> </td>
+        <td th:text="${user.date}"> </td>
+        <td>
+
+            <a th:href="@{/link/{id}(id=${user.id})}"> link</a>
+
+
+
+
+
+        </td>
+    </tr>
+</table>
+
+<div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
+
+<tr th:each="user :${user}">
+    <td th:text ="${user.title}">Some test text here</td>
+    <td>
+        <a th:href ="@{/link/{id}(id=${course.id})}">link</a>-
+        <a th:href ="@{/detail/{id}(id=${course.id})}">Details</a>-
+        <a th:href ="@{/delete/{id}(id=${course.id})}">Delete</a>
+    </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</body>
+</html>
